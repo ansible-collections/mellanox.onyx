@@ -6,8 +6,8 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-from units.compat.mock import patch
-from units.modules.utils import set_module_args
+from unittest.mock import patch
+from .utils import set_module_args
 from .onyx_module import TestOnyxModule, load_fixture
 from ansible_collections.mellanox.onyx.plugins.modules.network.onyx import onyx_facts
 
