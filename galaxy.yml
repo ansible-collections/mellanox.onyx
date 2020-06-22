@@ -12,7 +12,7 @@ tags:
   - cliconf
   - network
 dependencies: {}
-repository: https://github.com/ansible-collections/mellanox.onyx.git
-documentation: https://github.com/ansible-collections/mellanox.onyx.git
+repository: https://github.com/ansible-collections/mellanox.ony
+documentation: https://github.com/ansible-collections/mellanox.onyx
 homepage: https://github.com/ansible-collections/mellanox.onyx
 issues: https://github.com/ansible-collections/mellanox.onyx/issues
