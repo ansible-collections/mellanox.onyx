@@ -9,7 +9,7 @@ __metaclass__ = type
 from unittest.mock import patch
 from .utils import set_module_args
 from .onyx_module import TestOnyxModule, load_fixture
-from ansible_collections.mellanox.onyx.plugins.modules.network.onyx import onyx_facts
+from ansible_collections.mellanox.onyx.plugins.modules.network import onyx_facts
 
 
 class TestOnyxFacts(TestOnyxModule):
