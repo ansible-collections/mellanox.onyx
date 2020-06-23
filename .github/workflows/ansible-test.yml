@@ -39,6 +39,9 @@ jobs:
       - name: Install ansible-base (devel)
         run: pip install https://github.com/ansible/ansible/archive/devel.tar.gz --disable-pip-version-check
 
+      - name: Install ansible.netcommon
+        run: ansible-galaxy install ansible.netcommon
+
       - name: Run unit tests
         run: ansible-test units --docker -v --color --python 3.6 --coverage
 
