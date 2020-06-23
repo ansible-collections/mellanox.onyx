@@ -87,7 +87,7 @@ from copy import deepcopy
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
-from ansible.module_utils.network.common.utils import remove_default_spec
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 
 from ansible_collections.mellanox.onyx.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
 from ansible_collections.mellanox.onyx.plugins.module_utils.network.onyx.onyx import show_cmd

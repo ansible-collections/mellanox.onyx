@@ -11,7 +11,8 @@ tags:
   - onyx
   - cliconf
   - network
-dependencies: {}
+dependencies:
+  "ansible.netcommon": "*"
 repository: https://github.com/ansible-collections/mellanox.onyx
 documentation: https://github.com/ansible-collections/mellanox.onyx
 homepage: https://github.com/ansible-collections/mellanox.onyx
