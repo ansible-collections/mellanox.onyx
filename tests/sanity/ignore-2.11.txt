@@ -1,15 +1,12 @@
-plugins/action/onyx_config.py action-plugin-docs # undocumented action plugin to fix
 plugins/modules/onyx_bgp.py validate-modules:doc-elements-mismatch
 plugins/modules/onyx_bgp.py validate-modules:doc-missing-type
 plugins/modules/onyx_bgp.py validate-modules:parameter-type-not-in-doc
 plugins/modules/onyx_buffer_pool.py validate-modules:doc-missing-type
 plugins/modules/onyx_buffer_pool.py validate-modules:parameter-type-not-in-doc
 plugins/modules/onyx_command.py validate-modules:doc-missing-type
-plugins/modules/onyx_command.py validate-modules:nonexistent-parameter-documented
 plugins/modules/onyx_command.py validate-modules:parameter-list-no-elements
 plugins/modules/onyx_command.py validate-modules:parameter-type-not-in-doc
 plugins/modules/onyx_config.py validate-modules:doc-missing-type
-plugins/modules/onyx_config.py validate-modules:nonexistent-parameter-documented
 plugins/modules/onyx_config.py validate-modules:parameter-list-no-elements
 plugins/modules/onyx_config.py validate-modules:parameter-type-not-in-doc
 plugins/modules/onyx_facts.py validate-modules:parameter-list-no-elements
