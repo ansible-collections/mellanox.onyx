@@ -18,7 +18,7 @@ jobs:
           python-version: 3.6
 
       - name: Install ansible.netcommon
-        run: ansible-galaxy collection install ansible.netcommon
+        run: ansible-galaxy collection install ansible.netcommon -p ../../
 
       - name: Install ansible-base (devel)
         run: pip install https://github.com/ansible/ansible/archive/devel.tar.gz --disable-pip-version-check
@@ -43,7 +43,7 @@ jobs:
         run: pip install https://github.com/ansible/ansible/archive/devel.tar.gz --disable-pip-version-check
 
       - name: Install ansible.netcommon
-        run: ansible-galaxy collection install ansible.netcommon
+        run: ansible-galaxy collection install ansible.netcommon -p ../../
 
       - name: Run unit tests
         run: ansible-test units --docker -v --color --python 3.6 --coverage
