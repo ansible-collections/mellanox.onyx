@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_buffer_pool
-version_added: "2.8"
 author: "Anas Badaha (@anasb)"
 short_description: Configures Buffer Pool
 description:
@@ -37,10 +32,10 @@ options:
   switch_priority:
     description:
       - switch priority, range 1-7.
-"""
+'''
 
 EXAMPLES = """
-- name: configure buffer pool
+- name: Configure buffer pool
   onyx_buffer_pool:
     name: roce
     pool_type: lossless

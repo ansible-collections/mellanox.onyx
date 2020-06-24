@@ -6,18 +6,14 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_ptp_interface
-version_added: '2.8'
 author: 'Anas Badaha (@anasb)'
 short_description: 'Configures PTP on interface'
 description:
-    - "This module provides declarative management of PTP interfaces configuration\non Mellanox ONYX network devices."
+    - "This module provides declarative management of PTP interfaces configuration
+on Mellanox ONYX network devices."
 notes:
     - 'Tested on ONYX 3.6.8130'
     - 'PTP Protocol must be enabled on switch.'
@@ -46,10 +42,10 @@ options:
     sync_interval:
         description:
             - 'configure PTP sync interval, Range -7--1'
-"""
+'''
 
 EXAMPLES = """
-- name: configure PTP interface
+- name: Configure PTP interface
   onyx_ptp_interface:
     state: enabled
     name: Eth1/1

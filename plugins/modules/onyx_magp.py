@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_magp
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage MAGP protocol on Mellanox ONYX network devices
 description:
@@ -41,10 +36,10 @@ options:
   router_mac:
     description:
       - MAGP router MAC address.
-"""
+'''
 
 EXAMPLES = """
-- name: run add vlan interface with magp
+- name: Run add vlan interface with magp
   onyx_magp:
     magp_id: 103
     router_ip: 192.168.8.2

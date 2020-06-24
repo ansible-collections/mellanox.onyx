@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_linkagg
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage link aggregation groups on Mellanox ONYX network devices
 description:
@@ -49,17 +44,17 @@ options:
       - State of the link aggregation group.
     default: present
     choices: ['present', 'absent', 'up', 'down']
-"""
+'''
 
 EXAMPLES = """
-- name: configure link aggregation group
+- name: Configure link aggregation group
   onyx_linkagg:
     name: Po1
     members:
       - Eth1/1
       - Eth1/2
 
-- name: remove configuration
+- name: Remove configuration
   onyx_linkagg:
     name: Po1
     state: absent

@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_mlag_ipl
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage IPL (inter-peer link) on Mellanox ONYX network devices
 description:
@@ -37,17 +32,17 @@ options:
   peer_address:
     description:
       - IPL peer IP address.
-"""
+'''
 
 EXAMPLES = """
-- name: run configure ipl
+- name: Run configure ipl
   onyx_mlag_ipl:
     name: Po1
     vlan_interface: Vlan 322
     state: present
     peer_address: 192.168.7.1
 
-- name: run remove ipl
+- name: Run remove ipl
   onyx_mlag_ipl:
     name: Po1
     state: absent

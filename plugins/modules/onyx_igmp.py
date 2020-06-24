@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_igmp
-version_added: "2.7"
 author: "Samer Deeb (@samerd)"
 short_description: Configures IGMP global parameters
 description:
@@ -53,10 +48,10 @@ options:
     description:
       - Configure the default operating version of the IGMP snooping
     choices: ['V2','V3']
-"""
+'''
 
 EXAMPLES = """
-- name: configure igmp
+- name: Configure igmp
   onyx_igmp:
     state: enabled
     unregistered_multicast: flood

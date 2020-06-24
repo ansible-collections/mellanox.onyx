@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_pfc_interface
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage priority flow control on ONYX network devices
 description:
@@ -37,10 +32,10 @@ options:
       - State of the PFC configuration.
     default: enabled
     choices: ['enabled', 'disabled']
-"""
+'''
 
 EXAMPLES = """
-- name: configure PFC
+- name: Configure PFC
   onyx_pfc_interface:
     name: Eth1/1
     state: enabled

@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_qos
-version_added: "2.9"
 author: "Anas Badaha (@anasb)"
 short_description: Configures QoS
 description:
@@ -41,10 +36,10 @@ options:
       - rewrite with type dscp.
     choices: ['enabled', 'disabled']
     default: disabled
-"""
+'''
 
 EXAMPLES = """
-- name: configure QoS
+- name: Configure QoS
   onyx_QoS:
     interfaces:
       - Mpo7
@@ -53,7 +48,7 @@ EXAMPLES = """
     rewrite_pcp: disabled
     rewrite_dscp: enabled
 
-- name: configure QoS
+- name: Configure QoS
   onyx_QoS:
     interfaces:
       - Eth1/1

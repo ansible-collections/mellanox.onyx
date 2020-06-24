@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_interface
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage Interfaces on Mellanox ONYX network devices
 description:
@@ -74,22 +69,22 @@ options:
         operationally up and C(down) means present and operationally C(down)
     default: present
     choices: ['present', 'absent', 'up', 'down']
-"""
+'''
 
 EXAMPLES = """
-- name: configure interface
+- name: Configure interface
   onyx_interface:
       name: Eth1/2
       description: test-interface
       speed: 100G
       mtu: 512
 
-- name: make interface up
+- name: Make interface up
   onyx_interface:
     name: Eth1/2
     enabled: True
 
-- name: make interface down
+- name: Make interface down
   onyx_interface:
     name: Eth1/2
     enabled: False

@@ -34,7 +34,7 @@ class TestOnyxCommandModule(TestOnyxModule):
     def setUp(self):
         super(TestOnyxCommandModule, self).setUp()
         self.mock_run_commands = patch(
-            'ansible_collections.mellanox.onyx.plugins.modules.onyx.onyx_command.run_commands')
+            'ansible_collections.mellanox.onyx.plugins.modules.onyx_command.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

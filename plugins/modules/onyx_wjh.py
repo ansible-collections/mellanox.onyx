@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_wjh
-version_added: "2.9"
 author: "Anas Shami (@anass)"
 short_description: Configure what-just-happend module
 description:
@@ -44,28 +39,28 @@ options:
           - clear pcap file by group
         choices: ['all', 'user', 'auto-export']
         type: str
-"""
+'''
 
 EXAMPLES = """
-- name: enable wjh
+- name: Enable wjh
   onyx_wjh:
       group: forwarding
       enabled: True
 
-- name: disable wjh
+- name: Disable wjh
   onyx_wjh:
       group: forwarding
       enabled: False
 
-- name: enable auto-export
+- name: Enable auto-export
   onyx_wjh:
         auto_export: True
         export_group: forwarding
-- name: disable auto-export
+- name: Disable auto-export
   onyx_wjh:
         auto_export: False
         export_group: forwarding
-- name: clear pcap file
+- name: Clear pcap file
   onyx_wjh:
         clear_group: auto-export
 """

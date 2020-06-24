@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_vxlan
-version_added: "2.8"
 author: "Anas Badaha (@anasb)"
 short_description: Configures Vxlan
 description:
@@ -46,10 +41,10 @@ options:
       - A flag telling if to configure arp suppression.
     type: bool
     default: false
-"""
+'''
 
 EXAMPLES = """
-- name: configure Vxlan
+- name: Configure Vxlan
   onyx_vxlan:
     nve_id: 1
     loopback_id: 1

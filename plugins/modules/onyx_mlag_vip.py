@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_mlag_vip
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Configures MLAG VIP on Mellanox ONYX network devices
 description:
@@ -40,10 +35,10 @@ options:
       - Delay interval, in seconds, waiting for the changes on mlag VIP to take
         effect.
     default: 12
-"""
+'''
 
 EXAMPLES = """
-- name: configure mlag-vip
+- name: Configure mlag-vip
   onyx_mlag_vip:
     ipaddress: 50.3.3.1/24
     group_name: ansible-test-group

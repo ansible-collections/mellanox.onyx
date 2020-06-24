@@ -33,13 +33,13 @@ class TestOnyxConfigModule(TestOnyxModule):
     def setUp(self):
         super(TestOnyxConfigModule, self).setUp()
 
-        self.mock_get_config = patch('ansible_collections.mellanox.onyx.plugins.modules.onyx.onyx_config.get_config')
+        self.mock_get_config = patch('ansible_collections.mellanox.onyx.plugins.modules.onyx_config.get_config')
         self.get_config = self.mock_get_config.start()
 
-        self.mock_load_config = patch('ansible_collections.mellanox.onyx.plugins.modules.onyx.onyx_config.load_config')
+        self.mock_load_config = patch('ansible_collections.mellanox.onyx.plugins.modules.onyx_config.load_config')
         self.load_config = self.mock_load_config.start()
 
-        self.mock_run_commands = patch('ansible_collections.mellanox.onyx.plugins.modules.onyx.onyx_config.run_commands')
+        self.mock_run_commands = patch('ansible_collections.mellanox.onyx.plugins.modules.onyx_config.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

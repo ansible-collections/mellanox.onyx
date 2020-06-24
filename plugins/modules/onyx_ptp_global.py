@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_ptp_global
-version_added: "2.8"
 author: "Anas Badaha (@anasb)"
 short_description: Configures PTP Global parameters
 description:
@@ -41,10 +36,10 @@ options:
   secondary_priority:
     description:
       - "set PTP secondary priority Range 0-225"
-"""
+'''
 
 EXAMPLES = """
-- name: configure PTP
+- name: Configure PTP
   onyx_ptp_global:
     ntp_state: enabled
     ptp_state: disabled

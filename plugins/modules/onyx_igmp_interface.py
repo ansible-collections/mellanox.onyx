@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_igmp_interface
-version_added: "2.8"
 author: "Anas Badaha (@anasb)"
 short_description: Configures IGMP interface parameters
 description:
@@ -31,10 +26,10 @@ options:
       - IGMP Interface state.
     choices: ['enabled', 'disabled']
     default: enabled
-"""
+'''
 
 EXAMPLES = """
-- name: configure igmp interface
+- name: Configure igmp interface
   onyx_igmp_interface:
     state: enabled
     name: Eth1/1

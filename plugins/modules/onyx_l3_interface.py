@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_l3_interface
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage L3 interfaces on Mellanox ONYX network devices
 description:
@@ -41,7 +36,7 @@ options:
       - State of the L3 interface configuration.
     default: present
     choices: ['present', 'absent']
-"""
+'''
 
 EXAMPLES = """
 - name: Set Eth1/1 IPv4 address

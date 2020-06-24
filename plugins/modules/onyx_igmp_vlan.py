@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_igmp_vlan
-version_added: '2.8'
 author: Anas Badaha (@anasbadaha)
 short_description: Configures IGMP Vlan parameters
 description:
@@ -76,10 +71,10 @@ options:
     description:
       - IGMP snooping operation version on this vlan
     choices: ['V2','V3']
-"""
+'''
 
 EXAMPLES = """
-- name: configure igmp vlan
+- name: Configure igmp vlan
   onyx_igmp_vlan:
     state: enabled
     vlan_id: 10

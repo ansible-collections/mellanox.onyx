@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_lldp
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage LLDP configuration on Mellanox ONYX network devices
 description:
@@ -25,7 +20,7 @@ options:
       - State of the LLDP protocol configuration.
     default: present
     choices: ['present', 'absent']
-"""
+'''
 
 EXAMPLES = """
 - name: Enable LLDP protocol

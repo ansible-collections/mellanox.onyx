@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_protocol
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Enables/Disables protocols on Mellanox ONYX network devices
 description:
@@ -58,11 +53,14 @@ options:
   nve:
     description: nve protocol
     choices: ['enabled', 'disabled']
-    version_added: "2.9"
-"""
+  bfd:
+    description: bfd protocol
+    choices: ['enabled', 'disabled']
+    version_added: '0.2.0'
+'''
 
 EXAMPLES = """
-- name: enable protocols for MLAG
+- name: Enable protocols for MLAG
   onyx_protocol:
     lacp: enabled
     spanning_tree: disabled
@@ -113,6 +111,8 @@ class OnyxProtocolModule(BaseOnyxModule):
                   disable="no protocol ospf"),
         nve=dict(name="nve", enable="protocol nve",
                  disable="no protocol nve"),
+        bfd=dict(name="bfd", enable="protocol bfd",
+                 disable="no protocol bfd"),
     )
 
     @classmethod

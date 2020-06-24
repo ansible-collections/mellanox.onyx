@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_traffic_class
-version_added: "2.9"
 author: "Anas Badaha (@anasb)"
 short_description: Configures Traffic Class
 description:
@@ -67,10 +62,10 @@ options:
       weight:
         description:
           - Relevant only for wrr mode.
-"""
+'''
 
 EXAMPLES = """
-- name: configure traffic class
+- name: Configure traffic class
   onyx_traffic_class:
     interfaces:
       - Eth1/1

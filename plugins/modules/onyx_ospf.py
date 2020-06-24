@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_ospf
-version_added: "2.5"
 author: "Samer Deeb (@samerd)"
 short_description: Manage OSPF protocol on Mellanox ONYX network devices
 description:
@@ -46,10 +41,10 @@ options:
       - OSPF state.
     default: present
     choices: ['present', 'absent']
-"""
+'''
 
 EXAMPLES = """
-- name: add ospf router to interface
+- name: Add ospf router to interface
   onyx_ospf:
     ospf: 2
     router_id: 192.168.8.2

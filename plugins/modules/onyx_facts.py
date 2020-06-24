@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_facts
-version_added: "2.5"
 author: "Waleed Mousa (@waleedym), Samer Deeb (@samerd)"
 short_description: Collect facts from Mellanox ONYX network devices
 description:
@@ -35,7 +30,7 @@ options:
         not be collected.
     required: false
     default: version
-"""
+'''
 
 EXAMPLES = """
 ---

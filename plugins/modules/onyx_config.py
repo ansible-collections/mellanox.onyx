@@ -6,14 +6,10 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_config
-version_added: "2.5"
+
 author: "Alex Tabachnik (@atabachnik), Samer Deeb (@samerd)"
 short_description: Manage Mellanox ONYX configuration sections
 description:
@@ -108,7 +104,7 @@ options:
     suboptions:
       filename:
         description:
-          - The filename to be used to store the backup configuration. If the the filename
+          - The filename to be used to store the backup configuration. If the filename
             is not given it will be generated based on the hostname, current time and date
             in format defined by <hostname>_config.<current-date>@<current-time>
       dir_path:
@@ -121,8 +117,7 @@ options:
             and backup configuration will be copied in C(filename) within I(backup) directory.
         type: path
     type: dict
-    version_added: "2.8"
-"""
+'''
 
 EXAMPLES = """
 ---

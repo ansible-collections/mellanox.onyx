@@ -6,14 +6,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = """
+DOCUMENTATION = '''
 ---
 module: onyx_vlan
-version_added: "2.5"
 author: "Samer Deeb (@samerd) Alex Tabachnik (@atabachnik)"
 short_description: Manage VLANs on Mellanox ONYX network devices
 description:
@@ -38,15 +33,15 @@ options:
       - State of the VLAN configuration.
     default: present
     choices: ['present', 'absent']
-"""
+'''
 
 EXAMPLES = """
-- name: configure VLAN ID and name
+- name: Configure VLAN ID and name
   onyx_vlan:
     vlan_id: 20
     name: test-vlan
 
-- name: remove configuration
+- name: Remove configuration
   onyx_vlan:
     state: absent
 """
