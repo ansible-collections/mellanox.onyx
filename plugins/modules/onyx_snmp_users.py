@@ -120,7 +120,7 @@ class OnyxSNMPUsersModule(BaseOnyxModule):
                          set_access_enabled=dict(type='bool'),
                          require_privacy=dict(type='bool'),
                          auth_type=dict(type='str', choices=['md5', 'sha', 'sha224', 'sha256', 'sha384', 'sha512']),
-                         auth_password=dict(type='str'),
+                         auth_password=dict(type='str', no_log=True),
                          capability_level=dict(type='str', choices=['admin', 'monitor', 'unpriv', 'v_admin']),
                          )
         element_spec = dict(

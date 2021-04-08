@@ -1,0 +1,4 @@
+---
+security:
+  - onyx_snmp_users - exclude the ``auth_key_password`` option's value from logging (https://github.com/ansible-collections/mellanox.onyx/pull/13).
+  - onyx_ntp - exclude the ``auth_key_password`` option's value from logging (https://github.com/ansible-collections/mellanox.onyx/pull/13).
