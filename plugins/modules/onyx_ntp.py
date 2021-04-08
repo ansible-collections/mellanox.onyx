@@ -100,13 +100,13 @@ class OnyxNTPModule(BaseOnyxModule):
         """
         ntp_authentication_key_spec = dict(auth_key_id=dict(type='int', required=True),
                                            auth_key_encrypt_type=dict(required=True, choices=['md5', 'sha1']),
-                                           auth_key_password=dict(required=True),
+                                           auth_key_password=dict(required=True, no_log=True),
                                            auth_key_state=dict(choices=['present', 'absent']))
         element_spec = dict(
             state=dict(choices=['enabled', 'disabled']),
             authenticate_state=dict(choices=['enabled', 'disabled']),
-            ntp_authentication_keys=dict(type='list', elements='dict', options=ntp_authentication_key_spec),
-            trusted_keys=dict(type='list', elements='int')
+            ntp_authentication_keys=dict(type='list', elements='dict', options=ntp_authentication_key_spec, no_log=False),
+            trusted_keys=dict(type='list', elements='int', no_log=False)
         )
         argument_spec = dict()
         argument_spec.update(element_spec)
