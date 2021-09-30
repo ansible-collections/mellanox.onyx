@@ -178,8 +178,7 @@ class OnyxWJHModule(BaseOnyxModule):
         current_enabled = False
         if group_value == 'all':
             # no disabled group so all would be false
-            current_enabled = not all([
-                                      (group + suffix) in current_config for group in self.WJH_GROUPS])
+            current_enabled = not all((group + suffix) in current_config for group in self.WJH_GROUPS)
         else:
             # if no current-value its enabled
             current_enabled = current_config[group_value + suffix] if((group_value + suffix) in current_config) else True
