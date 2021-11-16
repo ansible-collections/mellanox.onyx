@@ -83,7 +83,7 @@ options:
 
 EXAMPLES = """
 - name: Configure NTP peers and servers
-  onyx_ntp_peers_servers:
+  onyx_ntp_servers_peers:
     peer:
        - ip_or_name: 1.1.1.1
          enabled: yes
