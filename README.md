@@ -56,12 +56,12 @@ Another option is to call modules by their short name if you list the `mellanox.
     - mellanox.onyx
 
   tasks:
-	- name: configure link aggregation group
-	  onyx_linkagg:
-	    name: Po1
-	    members:
-	      - Eth1/1
-	      - Eth1/2
+  - name: configure link aggregation group
+    onyx_linkagg:
+      name: Po1
+      members:
+        - Eth1/1
+        - Eth1/2
 ```
 
 
