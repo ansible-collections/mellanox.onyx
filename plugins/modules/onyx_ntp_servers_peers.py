@@ -17,6 +17,7 @@ description:
 options:
   peer:
     type: list
+    elements: dict
     description:
       - List of ntp peers.
     suboptions:
@@ -45,6 +46,7 @@ options:
         type: str
   server:
     type: list
+    elements: dict
     description:
       - List of ntp servers.
     suboptions:
