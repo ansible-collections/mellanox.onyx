@@ -26,7 +26,7 @@ short_description: Use onyx cliconf to run command on Mellanox ONYX platform
 description:
   - This onyx plugin provides low level abstraction apis for
     sending and receiving CLI commands from Mellanox ONYX network devices.
-version_added: "2.5"
+version_added: "2.5.0"
 """
 
 import json
