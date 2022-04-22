@@ -64,8 +64,6 @@ plugins/modules/onyx_mlag_ipl.py validate-modules:doc-missing-type
 plugins/modules/onyx_mlag_vip.py validate-modules:doc-default-does-not-match-spec
 plugins/modules/onyx_mlag_vip.py validate-modules:doc-missing-type
 plugins/modules/onyx_mlag_vip.py validate-modules:parameter-type-not-in-doc
-plugins/modules/onyx_ntp.py validate-modules:doc-elements-mismatch
-plugins/modules/onyx_ntp_servers_peers.py validate-modules:doc-elements-mismatch
 plugins/modules/onyx_ospf.py validate-modules:doc-elements-mismatch
 plugins/modules/onyx_ospf.py validate-modules:doc-missing-type
 plugins/modules/onyx_ospf.py validate-modules:parameter-type-not-in-doc
@@ -84,10 +82,6 @@ plugins/modules/onyx_ptp_interface.py validate-modules:parameter-type-not-in-doc
 plugins/modules/onyx_qos.py validate-modules:doc-missing-type
 plugins/modules/onyx_qos.py validate-modules:parameter-list-no-elements
 plugins/modules/onyx_qos.py validate-modules:parameter-type-not-in-doc
-plugins/modules/onyx_snmp.py validate-modules:doc-elements-mismatch
-plugins/modules/onyx_snmp_hosts.py validate-modules:doc-elements-mismatch
-plugins/modules/onyx_snmp_users.py validate-modules:doc-elements-mismatch
-plugins/modules/onyx_syslog_remote.py validate-modules:doc-elements-mismatch
 plugins/modules/onyx_traffic_class.py validate-modules:doc-missing-type
 plugins/modules/onyx_traffic_class.py validate-modules:parameter-list-no-elements
 plugins/modules/onyx_traffic_class.py validate-modules:parameter-type-not-in-doc
