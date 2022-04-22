@@ -28,6 +28,7 @@ options:
     type: str
   ntp_authentication_keys:
     type: list
+    elements: dict
     description:
       - List of ntp authentication keys
     suboptions:
@@ -54,6 +55,7 @@ options:
          type: str
   trusted_keys:
     type: list
+    elements: int
     description:
       - List of ntp trusted keys
 '''

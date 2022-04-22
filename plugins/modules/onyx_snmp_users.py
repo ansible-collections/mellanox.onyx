@@ -18,6 +18,7 @@ description:
 options:
   users:
     type: list
+    elements: dict
     description:
       - List of snmp users
     suboptions:

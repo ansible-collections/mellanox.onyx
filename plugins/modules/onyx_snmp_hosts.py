@@ -18,6 +18,7 @@ description:
 options:
   hosts:
     type: list
+    elements: dict
     description:
       - List of snmp hosts
     suboptions:

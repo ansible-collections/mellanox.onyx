@@ -38,6 +38,7 @@ options:
     type: bool
   snmp_communities:
     type: list
+    elements: dict
     description:
       - List of snmp communities
     suboptions:
@@ -96,6 +97,7 @@ options:
     type: bool
   snmp_permissions:
     type: list
+    elements: dict
     description:
       -  Allow SNMPSET requests for items in a MIB.
     suboptions:

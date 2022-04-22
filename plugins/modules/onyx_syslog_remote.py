@@ -39,6 +39,7 @@ options:
         description:
           - Override log levels for this sink on a per-class basis
         type: list
+        elements: dict
         suboptions:
             override_class:
                 description:
