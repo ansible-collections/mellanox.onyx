@@ -1,3 +1,8 @@
+## **[UNMAINTAINED]**
+This collection is unmaintained.
+
+---
+
 # Mellanox Onyx Collection
 <!--[![CI](https://zuul-ci.org/gated.svg)]-->
 <!-- Add CI infornmntiom-->
