@@ -111,7 +111,7 @@ commands:
     - router bgp 320 vrf default neighbor evpn send-community extended
     - router bgp 320 vrf default address-family l2vpn-evpn neighbor evpn next-hop-unchanged
     - router bgp 320 vrf default address-family l2vpn-evpn neighbor evpn activate
-    - router bgp 320 vrf default address-family l2vpn-evpn auto-create
+    - router bgp 320 vrf default address-family l2vpn-evpn vni auto-create
     - router bgp 320 vrf default neighbor 10.3.3.4 remote-as 321
     - router bgp 320 vrf default neighbor 10.3.3.4 ebgp-multihop 250
     - router bgp 320 vrf default neighbor 10.3.3.5 remote-as 322
@@ -152,7 +152,7 @@ class OnyxBgpModule(BaseOnyxModule):
     EVPN_ACTIVATE_REGEX = re.compile(
         r'^\s.*router bgp\s+(\d+)\s+vrf\s+(\S+)\s+address-family l2vpn\-evpn neighbor evpn activate.*')
     EVPN_AUTO_CREATE_REGEX = re.compile(
-        r'^\s.*router bgp\s+(\d+)\s+vrf\s+(\S+)\s+address-family l2vpn\-evpn auto-create.*')
+        r'^\s.*router bgp\s+(\d+)\s+vrf\s+(\S+)\s+address-family l2vpn\-evpn vni auto-create.*')
 
     _purge = False
 
@@ -166,7 +166,7 @@ class OnyxBgpModule(BaseOnyxModule):
     EVPN_SEND_COMMUNITY_EXTENDED_CMD = "router bgp %s vrf %s neighbor evpn send-community extended"
     EVPN_NEXT_HOP_UNCHANGED_CMD = "router bgp %s vrf %s address-family l2vpn-evpn neighbor evpn next-hop-unchanged"
     EVPN_ACTIVATE_CMD = "router bgp %s vrf %s address-family l2vpn-evpn neighbor evpn activate"
-    EVPN_AUTO_CREATE_CMD = "router bgp %s vrf %s address-family l2vpn-evpn auto-create"
+    EVPN_AUTO_CREATE_CMD = "router bgp %s vrf %s address-family l2vpn-evpn vni auto-create"
 
     EVPN_ENABLE_ATTRS = [EVPN_PEER_GROUP_ATTR, EVPN_SEND_COMMUNITY_EXTENDED_ATTR,
                          EVPN_NEXT_HOP_UNCHANGED_ATTR, EVPN_ACTIVATE_ATTR, EVPN_AUTO_CREATE_ATTR]
