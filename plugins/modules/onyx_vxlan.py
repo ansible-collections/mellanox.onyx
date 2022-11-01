@@ -83,8 +83,8 @@ from ansible_collections.mellanox.onyx.plugins.module_utils.network.onyx.onyx im
 
 class OnyxVxlanModule(BaseOnyxModule):
 
-    LOOPBACK_REGEX = re.compile(r'^loopback (\d+).*')
-    NVE_ID_REGEX = re.compile(r'^Interface NVE (\d+).*')
+    LOOPBACK_REGEX = re.compile(r'^loopback (\d*).*')
+    NVE_ID_REGEX = re.compile(r'^Interface NVE (\d*).*')
 
     def init_module(self):
         """ initialize module
@@ -116,13 +116,16 @@ class OnyxVxlanModule(BaseOnyxModule):
         vxlan_config = vxlan_config[0]
         if not vxlan_config:
             return
-        nve_header = vxlan_config.get("header")
-        match = self.NVE_ID_REGEX.match(nve_header)
-        if match:
-            current_nve_id = int(match.group(1))
-            self._current_config['nve_id'] = current_nve_id
-            if int(current_nve_id) != self._required_config.get("nve_id"):
-                return
+        interface_key=''
+        for key in vxlan_config.keys():
+            if key.startswith('Interface NVE'):
+                match = self.NVE_ID_REGEX.match(key)
+                if match:
+                    interface_key=key
+                    current_nve_id = int(match.group(1))
+                    self._current_config['nve_id'] = current_nve_id
+                    if int(current_nve_id) != self._required_config.get("nve_id"):
+                        return
 
         self._current_config['mlag_tunnel_ip'] = vxlan_config.get("Mlag tunnel IP")
         controller_mode = vxlan_config.get("Controller mode")
@@ -130,8 +133,7 @@ class OnyxVxlanModule(BaseOnyxModule):
             self._current_config['bgp'] = True
         else:
             self._current_config['bgp'] = False
-
-        loopback_str = vxlan_config.get("Source interface")
+        loopback_str = vxlan_config.get(interface_key)[0].get("Source interface")
         match = self.LOOPBACK_REGEX.match(loopback_str)
         if match:
             loopback_id = match.group(1)
@@ -143,8 +145,7 @@ class OnyxVxlanModule(BaseOnyxModule):
         nve_detail = self._show_nve_detail()
 
         if nve_detail is not None:
-            nve_detail = nve_detail[0]
-
+            nve_detail = nve_detail[1]
             if nve_detail:
                 for vlan_id in nve_detail:
                     vni_vlan_mapping[int(vlan_id)] = dict(
