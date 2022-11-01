@@ -168,7 +168,7 @@ class OnyxL2InterfaceModule(BaseOnyxModule):
                 return None
 
     def _create_switchport_data(self, if_name, if_data):
-        if self._os_version >= self.ONYX_API_VERSION:
+        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
             if_data = if_data[0]
 
         return {

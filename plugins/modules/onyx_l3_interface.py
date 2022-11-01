@@ -192,7 +192,7 @@ class OnyxL3InterfaceModule(BaseOnyxModule):
         return get_interfaces_config(self._module, interface_type)
 
     def _parse_interfaces_config(self, if_type, if_config):
-        if self._os_version < self.ONYX_API_VERSION:
+        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
             for if_data in if_config:
                 if_name = self.get_config_attr(if_data, 'header')
                 self._get_if_attributes(if_type, if_name, if_data)
