@@ -83,8 +83,8 @@ from ansible_collections.mellanox.onyx.plugins.module_utils.network.onyx.onyx im
 
 class OnyxVxlanModule(BaseOnyxModule):
 
-    LOOPBACK_REGEX = re.compile(r'^loopback (\d*).*')
-    NVE_ID_REGEX = re.compile(r'^Interface NVE (\d*).*')
+    LOOPBACK_REGEX = re.compile(r'^loopback (\d+).*')
+    NVE_ID_REGEX = re.compile(r'^Interface NVE (\d+).*')
 
     def init_module(self):
         """ initialize module
