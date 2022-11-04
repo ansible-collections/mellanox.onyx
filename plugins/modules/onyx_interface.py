@@ -340,7 +340,7 @@ class OnyxInterfaceModule(BaseOnyxModule):
         config = self._get_interfaces_config()
         if not config:
             return
-        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+        if int(self._os_version.replace('.',''))<int(self.ONYX_API_VERSION.replace('.','')):
             for if_data in config:
                 if_name = self.get_if_name(if_data)
                 self._current_config[if_name] = self._create_if_data(

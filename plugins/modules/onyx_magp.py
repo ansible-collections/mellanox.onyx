@@ -129,7 +129,7 @@ class OnyxMagpModule(BaseOnyxModule):
             router_mac=self.get_config_attr(item, "Virtual MAC"))
 
     def _update_magp_data(self, magp_data):
-        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+        if int(self._os_version.replace('.',''))>=int(self.ONYX_API_VERSION.replace('.','')):
             for magp_config in magp_data:
                 for magp_name, data in iteritems(magp_config):
                     magp_id = int(magp_name.replace('MAGP ', ''))

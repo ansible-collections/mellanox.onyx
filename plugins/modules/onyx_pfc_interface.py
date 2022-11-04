@@ -140,7 +140,7 @@ class OnyxPfcInterfaceModule(BaseOnyxModule):
         pfc_config = self._get_pfc_config()
         if not pfc_config:
             return
-        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+        if int(self._os_version.replace('.',''))>=int(self.ONYX_API_VERSION.replace('.','')):
             if len(pfc_config) >= 3:
                 pfc_config = pfc_config[2]
             else:
