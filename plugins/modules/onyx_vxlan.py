@@ -116,35 +116,60 @@ class OnyxVxlanModule(BaseOnyxModule):
         vxlan_config = vxlan_config[0]
         if not vxlan_config:
             return
-        nve_header = vxlan_config.get("header")
-        match = self.NVE_ID_REGEX.match(nve_header)
-        if match:
-            current_nve_id = int(match.group(1))
-            self._current_config['nve_id'] = current_nve_id
-            if int(current_nve_id) != self._required_config.get("nve_id"):
-                return
 
-        self._current_config['mlag_tunnel_ip'] = vxlan_config.get("Mlag tunnel IP")
-        controller_mode = vxlan_config.get("Controller mode")
+        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+            interface_key=''
+            for key in vxlan_config.keys():
+                if key.startswith('Interface NVE'):
+                    match = self.NVE_ID_REGEX.match(key)
+                    if match:
+                        interface_key=key
+                        current_nve_id = int(match.group(1))
+                        self._current_config['nve_id'] = current_nve_id
+                        if int(current_nve_id) != self._required_config.get("nve_id"):
+                            return
+        else:
+            nve_header = vxlan_config.get("header")
+            match = self.NVE_ID_REGEX.match(nve_header)
+            if match:
+                current_nve_id = int(match.group(1))
+                self._current_config['nve_id'] = current_nve_id
+                if int(current_nve_id) != self._required_config.get("nve_id"):
+                    return
+        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+            self._current_config['mlag_tunnel_ip'] = vxlan_config.get(interface_key)[0].get("MLAG tunnel ip")
+            controller_mode = vxlan_config.get(interface_key)[0].get("Controller mode")
+        else:
+            self._current_config['mlag_tunnel_ip'] = vxlan_config.get("Mlag tunnel IP")
+            controller_mode = vxlan_config.get("Controller mode")
+
         if controller_mode == "BGP":
             self._current_config['bgp'] = True
         else:
             self._current_config['bgp'] = False
 
-        loopback_str = vxlan_config.get("Source interface")
+        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+            loopback_str = vxlan_config.get(interface_key)[0].get("Source interface")
+        else:
+            loopback_str = vxlan_config.get("Source interface")
         match = self.LOOPBACK_REGEX.match(loopback_str)
         if match:
             loopback_id = match.group(1)
             self._current_config['loopback_id'] = int(loopback_id)
 
-        self._current_config['global_neigh_suppression'] = vxlan_config.get("Global Neigh-Suppression")
+        if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+            self._current_config['global_neigh_suppression'] = vxlan_config.get(interface_key)[0].get("Global neigh-suppression")
+        else:
+            self._current_config['global_neigh_suppression'] = vxlan_config.get("Global Neigh-Suppression")
 
         vni_vlan_mapping = self._current_config['vni_vlan_mapping'] = dict()
         nve_detail = self._show_nve_detail()
 
         if nve_detail is not None:
-            nve_detail = nve_detail[0]
-
+            if int(self._os_version.replace('.',''))>int(self.ONYX_API_VERSION.replace('.','')):
+                nve_detail = nve_detail[1]
+            else:
+                nve_detail = nve_detail[0]
             if nve_detail:
                 for vlan_id in nve_detail:
                     vni_vlan_mapping[int(vlan_id)] = dict(
@@ -161,6 +186,7 @@ class OnyxVxlanModule(BaseOnyxModule):
 
     def load_current_config(self):
         self._current_config = dict()
+        self._os_version = self._get_os_version()
         vxlan_config = self._show_vxlan_config()
         if vxlan_config:
             self._set_vxlan_config(vxlan_config)
@@ -203,9 +229,9 @@ class OnyxVxlanModule(BaseOnyxModule):
     def _generate_vni_vlan_cmds(self, vni_vlan_list, nve_id, arp_suppression):
 
         current_global_arp_suppression = self._current_config.get('global_neigh_suppression')
-        if arp_suppression is True and current_global_arp_suppression != "Enable":
+        if arp_suppression is True and (not current_global_arp_suppression.startswith("Enable")):
             self._commands.append('interface nve {0} nve neigh-suppression'.format(nve_id))
-
+        
         current_vni_vlan_mapping = self._current_config.get('vni_vlan_mapping')
         if current_vni_vlan_mapping is None:
             for vni_vlan in vni_vlan_list:

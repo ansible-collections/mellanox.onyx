@@ -221,7 +221,7 @@ class OnyxLinkAggModule(BaseOnyxModule):
 
     def _parse_port_channels_summary(self, lag_type, lag_summary):
         if lag_type == self.MLAG_TYPE:
-            if self._os_version >= self.ONYX_API_VERSION:
+            if int(self._os_version.replace('.',''))>=int(self.ONYX_API_VERSION.replace('.','')):
                 found_summary = False
                 for summary_item in lag_summary:
                     if self.MLAG_SUMMARY in summary_item:
