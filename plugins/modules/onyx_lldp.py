@@ -29,7 +29,7 @@ EXAMPLES = """
 
 - name: Disable LLDP protocol
   onyx_lldp:
-    state: lldp
+    state: absent
 """
 
 RETURN = """
